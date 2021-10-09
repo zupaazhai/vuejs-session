@@ -9,6 +9,38 @@
 </template>
 ```
 
+## v-model
+```html
+<input v-model="name" placeholder="Enter your name" />
+<input :value="name" placeholder="Enter your name" />
+
+<input v-model="gender" type="radio" name="gender" value="male" />
+<input v-model="gender" type="radio" name="gender" value="female" />
+
+<select v-model="jobPosition">
+  <option value="developer">Developer</option>
+  <option value="manager">Manager</option>
+  <option value="tester">Tester</option>
+</select>
+
+<input v-model="langs[]" value="php" type="checkbox" /> PHP
+<input v-model="langs[]" value="js" type="checkbox" /> JS
+<input v-model="langs[]" value="go" type="checkbox" /> Go
+
+<textarea v-model="description"></textarea>
+```
+```javascript
+data() {
+  return {
+    name: '',
+    gender: 'male',
+    jobPosition: 'developer',
+    langs: [],
+    description: '',
+  }
+}
+```
+
 ## v-if
 ```html
 <template>
