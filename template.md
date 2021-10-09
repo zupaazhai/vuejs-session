@@ -60,6 +60,18 @@
 <button @click="onClick">Click Me</button>
 
 <!-- with modified -->
-<button @click.prevent="onClick">Click Me</button>
+<button @click.prevent="onClickWithEvent($event)">Click Me</button>
+```
+```javascript
+methods: {
+  onClick() {
+    alert("Hello")
+  },
+  
+  onClickWithEvent(e) {
+    let txt = e.target.innerText
+    console.log(txt)
+  }
+}
 ```
 see more [modifiers](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
