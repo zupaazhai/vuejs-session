@@ -40,3 +40,17 @@
   </ul>
 </template>
 ```
+
+## Event Binding (v-on or @)
+```html
+
+<!-- normal -->
+<button v-on:click="onClick">Click Me</button>
+
+<!-- shorthand -->
+<button @click="onClick">Click Me</button>
+
+<!-- with modified -->
+<button @click.prevent="onClick">Click Me</button>
+```
+see more [modifiers](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
