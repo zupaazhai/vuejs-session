@@ -48,6 +48,35 @@
 <button :class="['btn', 'btn-success']">class as array</button>
 
 <button :class="{'btn': true, 'btn-success': isSuccess}">class as object</button>
+
+<button :style="btnStyle()">class as object</button>
+
+<button :style="btnStyleComputed">class as object</button>
+```
+```javascript
+data () {
+  return {
+    isSuccess: true
+  }
+},
+
+computed: {
+  btnStyleComputed() {
+    return {
+      color: this.foo ? 'red' : 'blue',
+      backgroundImage: 'url(/path/to/image.jpg)'
+    }
+  }
+},
+
+methods: {
+  btnStyle() {
+    return {
+      color: 'red',
+      backgroundImage: 'url(/path/to/image.jpg)'
+    }
+  }
+}
 ```
 
 ## Event Binding (v-on or @)
