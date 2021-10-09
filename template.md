@@ -41,6 +41,15 @@
 </template>
 ```
 
+## Class and style binding
+```html
+<button v-bind:class="['btn', 'btn-success']">class as array</button>
+
+<button :class="['btn', 'btn-success']">class as array</button>
+
+<button :class="{'btn': true, 'btn-success': isSuccess}">class as object</button>
+```
+
 ## Event Binding (v-on or @)
 ```html
 
