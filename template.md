@@ -4,8 +4,24 @@
 <template>
   <span>{{ myname}}</span>
   
-  print html string
+  <!-- print html string -->
   <span v-html="myname"></span>
+</template>
+```
+
+## v-if
+```html
+<template>
+  <span v-if="name === 'john'">Hi John</span>
+  <span v-else-if="name === 'adam'">Hi adam</span>
+  <span v-else>Hi unknow</span>
+</template>
+```
+
+## v-show
+```html
+<template>
+  <span v-show="name === 'john'">Hi John</span>
 </template>
 ```
 
