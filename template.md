@@ -23,9 +23,9 @@
   <option value="tester">Tester</option>
 </select>
 
-<input v-model="langs[]" value="php" type="checkbox" /> PHP
-<input v-model="langs[]" value="js" type="checkbox" /> JS
-<input v-model="langs[]" value="go" type="checkbox" /> Go
+<input v-model="langs" value="php" type="checkbox" /> PHP
+<input v-model="langs" value="js" type="checkbox" /> JS
+<input v-model="langs" value="go" type="checkbox" /> Go
 
 <textarea v-model="description"></textarea>
 ```
