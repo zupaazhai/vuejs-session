@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo + jQuery</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>Todo + jQuery</h1>
+    <ul id="todo-list">
+    </ul>
+    <form id="form" action="" style="border: 1px solid red; display: inline-block; padding: 10px;">
+      <input type="text" id="todo-input" placeholder="Add todo item">
+      <button>Add</button>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script>
+
+    $('#form').on('submit', function (e) {
+      e.preventDefault()
+
+      // Access to input
+      const input = $('#todo-input')
+      const newTodo = input.val()
+
+      if (!newTodo) {
+        return alert('Input empty')
+      }
+
+      const newItem = $('<li>' + newTodo + '</li>')
+
+      // Add delete button
+      const button = $('<button>X Delete</button>').css({
+        marginLeft: '10px'
+      })
+
+      // Handle to delete item
+      button.on('click', function () {
+        newItem.remove()
+      })
+
+      // Append to list
+      newItem.append(button)
+
+      $('#todo-list').append(newItem)
+
+      // Clear input
+      input.val('')
+    })
+
+  </script>
+</body>
+</html>
