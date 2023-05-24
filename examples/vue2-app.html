@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <h1>{{ title }}</h1>
+
+    <button @click="stage = 'login'">Login</button>
+    <button @click="stage = 'register'">Register</button>
+
+    <form v-if="stage === 'login'" action="" id="login-form">
+      <h2>Login Form</h2>
+      <div>
+        <label for="email">E-mail</label>
+        <div>
+          <input type="email" id="email" placeholder="Enter your email" v-model="email">
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <div>
+          <input type="password" id="password" placeholder="Enter your password" v-model="password">
+        </div>
+      </div>
+
+      <div>
+        <input type="checkbox" id="remember" v-model="remember">
+        <label for="remember">Remember Me?</label>
+      </div>
+
+      <div>
+
+        <input type="radio" id="loginwithgmail" name="loginwith" value="gmail" v-model="loginwith">
+        <label for="loginwithgmail">Gmail</label>
+
+        <input type="radio" id="loginwithfacebook" name="loginwith" value="facebook" v-model="loginwith">
+        <label for="loginwithfacebook">Facebook</label>
+
+        <input type="radio" id="loginwithgithub" name="loginwith" value="github" v-model="loginwith">
+        <label for="loginwithgithub">Github</label>
+
+      </div>
+
+      <div>
+        <label for="loginas">Login as</label>
+        <select name="loginas" id="loginas" v-model="loginAs">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+          <option value="super_admin">Super Admin</option>
+        </select>
+      </div>
+
+      <div>
+        <button>Login</button>
+      </div>
+      <div>
+        <a @click="gotoRegisterForm" href="">Create new account</a>
+      </div>
+    </form>
+
+    <form v-if="stage === 'register'" action="" id="register-form">
+      <h2>Register Form</h2>
+      <div>
+        <label for="email">E-mail</label>
+        <div>
+          <input type="email" name="email" id="email" v-model="email">
+        </div>
+      </div>
+      <div>
+        <label for="name">Name</label>
+        <div>
+          <input type="text" name="name" id="name" v-model="name">
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <div>
+          <input type="password" name="password" id="password" v-model="password">
+        </div>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password</label>
+        <div>
+          <input type="password" name="confirm-password" id="confirm-password" v-model="confirmPassword">
+        </div>
+      </div>
+      <div>
+        <button>Register</button>
+      </div>
+      <div>
+        <a @click="gotoLogin" href="">Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+      data() {
+        return {
+
+          stage: 'login',
+
+          title: 'My App',
+          email: '',
+          password: '',
+          // true / false
+          remember: true,
+          loginwith: "gmail",
+          loginAs: "super_admin",
+
+          name: 'Supachai',
+          confirmPassword: '',
+        }
+      },
+
+      methods: {
+        gotoRegisterForm: function (event) {
+          event.preventDefault()
+          this.stage = 'register'
+        },
+
+        gotoLogin: function (event) {
+          event.preventDefault()
+          this.stage = 'login'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
