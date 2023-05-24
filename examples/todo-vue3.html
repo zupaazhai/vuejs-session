@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo + Vue3</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Todo + Vanilla</h1>
+    <ul id="todo-list">
+      <li v-for="(todo, index) in todos">
+        {{ todo }} <button @click="deleteTodo(index)">X Delete</button>
+      </li>
+    </ul>
+
+    <form
+      @submit.prevent="submit"
+      id="form"
+      action=""
+      style="border: 1px solid red; display: inline-block; padding: 10px;"
+    >
+      <input v-model="newTodo" type="text" id="todo-input" placeholder="Add todo item">
+      <button>Add</button>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, reactive } = Vue
+
+    createApp({
+      setup() {
+
+        const newTodo = ref('')
+        const todos = reactive([])
+
+        const submit = (e) => {
+          e.preventDefault()
+
+          todos.push(newTodo.value)
+          newTodo.value = ''
+        }
+
+        const deleteTodo = (index) => {
+          todos.splice(index, 1)
+        }
+
+        return { newTodo, todos, submit }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
